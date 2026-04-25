@@ -3,7 +3,7 @@
 Цель: уменьшать дублирование между сервисами без “god-lib” и без протечки бизнес-логики конкретного домена.
 
 Список согласованных внешних библиотек/инструментов:
-- `github.com/codex-k8s/kodex-guidelines-common/external_dependencies_catalog.md`
+- `github.com/codex-k8s/kodex-guidelines-common-ru/external_dependencies_catalog.md`
 
 ## Когда выносить
 

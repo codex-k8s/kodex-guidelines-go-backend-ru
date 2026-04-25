@@ -48,6 +48,6 @@
 - Соблюдён `code_commenting_rules.md`.
 - В каждом изменённом Go-модуле выполнен `go mod tidy`.
 - Если добавлена/обновлена внешняя Go библиотека, обновлён
-  `github.com/codex-k8s/kodex-guidelines-common/external_dependencies_catalog.md`.
+  `github.com/codex-k8s/kodex-guidelines-common-ru/external_dependencies_catalog.md`.
 - Прогнан `make lint-go` и исправлены нарушения.
 - Прогнан `make dupl-go`; дубли устранены или выделены в отдельную задачу.
