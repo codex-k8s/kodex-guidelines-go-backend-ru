@@ -32,4 +32,4 @@
 
 ## Ссылки
 
-- Ошибки: `docs/design-guidelines/go/error_handling.md`.
+- Ошибки: `error_handling.md`.

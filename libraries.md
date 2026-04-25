@@ -3,7 +3,7 @@
 Цель: уменьшать дублирование между сервисами без “god-lib” и без протечки бизнес-логики конкретного домена.
 
 Список согласованных внешних библиотек/инструментов:
-- `docs/design-guidelines/common/external_dependencies_catalog.md`
+- `github.com/codex-k8s/kodex-guidelines-common/external_dependencies_catalog.md`
 
 ## Когда выносить
 
@@ -29,5 +29,5 @@
 
 ## Контракты транспорта
 
-- gRPC правила см. `docs/design-guidelines/go/protobuf_grpc_contracts.md`.
-- Ошибки см. `docs/design-guidelines/go/error_handling.md`.
+- gRPC правила см. `protobuf_grpc_contracts.md`.
+- Ошибки см. `error_handling.md`.

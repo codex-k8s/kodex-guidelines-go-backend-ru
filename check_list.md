@@ -3,7 +3,7 @@
 Используется как self-check перед созданием PR. В PR достаточно написать: «чек-лист выполнен, релевантно N пунктов, все выполнены».
 
 ## Архитектура и структура
-- Структура сервиса соответствует `docs/design-guidelines/go/services_design_requirements.md` (domain/transport/repository разделены; нет доменной логики в transport).
+- Структура сервиса соответствует `services_design_requirements.md` (domain/transport/repository разделены; нет доменной логики в transport).
 - Доменные модели разложены системно (`internal/domain/types/{entity,value,enum,query,mixin}`), а не объявлены ad-hoc внутри service/handler файлов.
 - Репозиторные контракты не хранят доменные модели “вперемешку” в `repository.go`: модели вынесены в `internal/domain/types/**` и подключаются как aliases/imports.
 - Для transport/domain persistence payload-моделей нет anonymous `struct{...}` в production-коде: используются именованные типы в профильных пакетах (`types/*`, `transport/*/models`, `casters`).
@@ -45,9 +45,9 @@
 - OAuth/аутентификация не обходятся через debug или “временные” backdoor-механизмы.
 
 ## Автопроверки (обязательно перед PR)
-- Соблюдён `docs/design-guidelines/go/code_commenting_rules.md`.
+- Соблюдён `code_commenting_rules.md`.
 - В каждом изменённом Go-модуле выполнен `go mod tidy`.
 - Если добавлена/обновлена внешняя Go библиотека, обновлён
-  `docs/design-guidelines/common/external_dependencies_catalog.md`.
+  `github.com/codex-k8s/kodex-guidelines-common/external_dependencies_catalog.md`.
 - Прогнан `make lint-go` и исправлены нарушения.
 - Прогнан `make dupl-go`; дубли устранены или выделены в отдельную задачу.

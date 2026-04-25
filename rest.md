@@ -19,14 +19,14 @@
    - `openapi3.Loader` -> `doc.Validate(ctx)` -> `router.FindRoute(req)` -> `openapi3filter.ValidateRequest(...)`.
 3) На выходе (опционально, минимум в dev/stage) валидируем response:
    - `openapi3filter.ValidateResponse(...)`.
-4) Ошибки валидации нормализуем в единый безопасный HTTP контракт ошибок (см. `docs/design-guidelines/go/error_handling.md`).
+4) Ошибки валидации нормализуем в единый безопасный HTTP контракт ошибок (см. `error_handling.md`).
 
 Важно:
 - Handler’ы не повторяют schema/type validation (это ответственность OpenAPI middleware).
 - Сообщение ошибки валидатора не считается публичным контрактом; наружу отдаём безопасные поля (например, `message/loc/field`).
 
 ## Codegen (OpenAPI -> Go)
-Генерация запускается через `make` (см. `docs/design-guidelines/go/code_generation.md`), а конфигурация/шаблоны — в репозитории.
+Генерация запускается через `make` (см. `code_generation.md`), а конфигурация/шаблоны — в репозитории.
 
 Рекомендуемый подход:
 - хранить конфиги/шаблоны генерации централизованно (project-wide) в `tools/codegen/openapi/`;

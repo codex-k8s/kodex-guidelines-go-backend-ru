@@ -36,7 +36,7 @@ Transport handler: вызвать сервис и `return err` (без лого�
 ## HTTP + OpenAPI
 Правила:
 - OpenAPI-валидация делается **только** в middleware; handler’ы не валидируют типы/обязательность и не “проверяют” raw body.
-- Реализация OpenAPI request validation см. `docs/design-guidelines/go/rest.md`. Ошибки валидатора нормализуем в единый безопасный контракт.
+- Реализация OpenAPI request validation см. `rest.md`. Ошибки валидатора нормализуем в единый безопасный контракт.
 - Ошибки OpenAPI: 400 (или 422, но единообразно); стабильный безопасный контракт (напр. `message/loc/field`); в prod без внутренних текстов валидатора.
 - Central HTTP error handler = единственная граница: статус+тело+логирование; порядок: `context.Canceled` -> “готовая” HTTP-ошибка фреймворка -> OpenAPI -> доменные typed -> остальное 500.
 - Маппинг домена -> HTTP: Validation 400; Unauthorized 401; Forbidden 403; NotFound 404; Conflict 409; остальное 500.

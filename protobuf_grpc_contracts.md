@@ -26,4 +26,4 @@
   - validation -> `InvalidArgument`
   - conflict -> `AlreadyExists`/`FailedPrecondition` (выбрать и зафиксировать правило)
   - temporary unavailable -> `Unavailable`
-- Нельзя “всё превращать” в `Unknown/Internal` без маппинга доменной семантики (см. `docs/design-guidelines/go/error_handling.md`).
+- Нельзя “всё превращать” в `Unknown/Internal` без маппинга доменной семантики (см. `error_handling.md`).
