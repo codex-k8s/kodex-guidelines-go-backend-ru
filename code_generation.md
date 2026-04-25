@@ -55,8 +55,8 @@ make gen-proto-go SVC=services/<zone>/<service>
 Контракт:
 - `api/server/asyncapi.yaml`
 
-Применение в `kodex`:
-- описание webhook payloads и внутренних async-событий,
+Применение:
+- описание webhook payloads и внутренних async-событий;
 - опциональная генерация моделей для transport-слоя.
 
 Валидация:
