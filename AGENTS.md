@@ -1,0 +1,24 @@
+# Go Design Guidelines
+
+Документы для Go backend.
+
+- `check_list.md` — чек-лист перед PR для Go изменений.
+- `services_design_requirements.md` — структура сервиса, домен/кастеры, repo+SQL правила, OpenAPI/AsyncAPI.
+- `infrastructure_integration_requirements.md` — Postgres/Redis/секреты/миграции (goose) и запреты.
+- `observability_requirements.md` — логи/трейсы/метрики (OTel/Jaeger/Prometheus).
+- `protobuf_grpc_contracts.md` — правила gRPC `.proto` как транспортного контракта.
+- `rest.md` — REST стек (echo + OpenAPI validation + codegen + swagger UI).
+- `grpc.md` — gRPC (границы, контракты, ссылки на codegen).
+- `websockets.md` — WebSocket (контракт AsyncAPI, правила сервера).
+- `code_generation.md` — обязательные правила и команды кодогенерации.
+- `code_commenting_rules.md` — правила комментариев в Go.
+- `error_handling.md` — обязательные правила обработки ошибок в Go.
+- `libraries.md` — что выносить в `libs/go/*` и как.
+- `../common/external_dependencies_catalog.md` — согласованный список внешних библиотек и инструментов.
+
+Специфика `kodex`:
+- Kubernetes интеграция только через `client-go` и адаптеры.
+- Репозитории (GitHub/GitLab) только через provider-интерфейсы.
+- Оркестрация процессов event/webhook-driven, без workflow-first зависимостей.
+- Состояние процессов и синхронизация pod'ов — через PostgreSQL (`JSONB` + `pgvector`).
+- Проектное планирование и документационная каноника задаются корневым `AGENTS.md` и актуальной проектной документацией, а не этим техническим гайдом.
