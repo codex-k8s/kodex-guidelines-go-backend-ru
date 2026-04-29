@@ -14,6 +14,24 @@
 - gRPC методы (handlers) тонкие: принимают request, маппят в домен, вызывают доменный use-case/service, возвращают `error`.
 - Маппинг доменных ошибок -> `codes.*` и recovery — в interceptors (см. `error_handling.md`).
 
+## Лимиты gRPC сервера и клиентов
+
+gRPC server должен иметь лимиты, заданные через конфигурацию:
+
+- максимальное число in-flight RPC на реплику;
+- максимальное число concurrent streams, если используется HTTP/2 stream concurrency;
+- keepalive и enforcement policy;
+- per-RPC timeout/deadline policy;
+- максимальный размер сообщений, если проект допускает payload больше дефолта;
+- размер буфера ожидания и поведение при переполнении, если буфер используется.
+
+gRPC clients должны задавать параметры соединений и backoff, keepalive, per-call timeout и retry policy
+через конфигурацию. Нельзя создавать новый client connection на каждый запрос.
+
+Unary/stream interceptors должны публиковать метрики активных RPC, отказов из-за лимита,
+заполнения буфера, длительности ожидания и ошибок по `codes.*`. Эти метрики должны быть пригодны
+для HPA или другого механизма автомасштабирования, если проект его использует.
+
 ## Codegen и dev-гейтвей
 Генерация кода и dev-инфраструктуры (grpc-gateway + OpenAPI) описаны в:
 - `code_generation.md`
